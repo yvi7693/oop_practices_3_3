@@ -1,0 +1,185 @@
+# task1
+
+# Сущность - животное
+
+# Поля:
+# имя
+# возраст
+# вид животного
+# звук животного
+
+
+class Animal:
+    name: str
+    age: int
+    type_animal: str
+    sound_animal: str
+
+    def play_sound_animal(self, sound_animal: str) -> None:
+
+        print(f"Животное издает звук {sound_animal}")
+
+
+    def __str__(self):
+
+        print(f"Имя животного: {self.name}")
+        print(f"Возраст животного: {self.age}")
+        print(f"Тип животного {self.type_animal}")
+        print(f"Звук животного {self.sound_animal}")
+
+
+
+
+
+# task2
+
+# Сущность - книга
+
+# Поля:
+# - наименование книги
+# - автор книги
+# - количество страниц
+
+
+class Book:
+    tittle: str
+    author: str
+    count_page: int
+
+
+
+    def __str__(self):
+        print(f"Наименование книги: {self.tittle}")
+        print(f"Автор книги: {self.author}")
+        print(f"Количество страниц: {self.count_page}")
+
+
+    def open_page(self, number_page: int) -> str | None:
+        if number_page <= self.count_page and number_page > 0:
+
+            return f"Страница {number_page} открыта"
+
+        else:
+
+            return f"Страницы {number_page} не существует"
+
+
+
+
+
+
+# task3
+
+# Сущность - Пассажирский самолет
+
+# Поля:
+# - производитель самолета
+# - модель самолета
+# - вместимость пассажиров
+# - текущая высота
+# - текущая скорость
+
+
+class PassengerPlane:
+    manufactured_plane: str
+    model_plane: str
+    passenger_capacity: int
+    current_height: float
+    current_speed: float
+
+
+
+    def __str__(self):
+        print(f"Производитель самолёта: {self.manufactured_plane}")
+        print(f"Модель самолёта: {self.model_plane}")
+        print(f"Вместимость пассажиров: {self.passenger_capacity}")
+        print(f"Текущая высота: {self.current_height}")
+        print(f"Текущая скорость: {self.current_speed}")
+
+
+    def take_off(self, current_height: float, current_speed: float) -> str:
+
+        return "Самолёт взлетел!"
+
+
+    def landing(self, current_height: float, current_speed: float) -> str:
+
+        return "Самолёт приземлился!"
+
+
+    def height_change(self, new_height: float) -> str:
+
+        self.current_height = new_height
+
+        return "Высота изменена!"
+
+
+    def speed_change(self, new_speed: float) -> str:
+
+        self.current_speed = new_speed
+
+        return "Скорость изменена!"
+
+
+
+
+
+
+#     Сущность - Музыкальный альбом
+
+# Поля:
+# - исполнитель
+# - название альбома
+# - жанр
+# - список треков
+
+
+class MusicAlbum:
+    singer: str
+    name_album: str
+    genre: str
+    tracks: list[str]
+
+
+    def __str__(self):
+        print(f"Исполнитель: {self.singer}")
+        print(f"Наименование альбома: {self.name_album}")
+        print(f"Жанр: {self.genre}")
+        print(f"Список треков: {self.tracks}")
+
+
+    def add_track(self, track: str) -> None:
+        self.tracks += track
+
+
+    def delete_track(self, track: str) -> str:
+        is_availability = False
+
+        for i in range(len(self.tracks)):
+
+            if self.tracks[i] == track:
+                self.tracks.pop(i)
+                is_availability = True
+
+        if is_availability:
+            return f"Трек {track} удалён с альбома!"
+
+        return f"Трек {track} не найден"
+
+
+    def play_track(self, track: str) -> str:
+        is_availability = False
+
+        for i in range(len(self.tracks)):
+
+            if self.tracks[i] == track:
+                is_availability = True
+
+
+        if is_availability:
+            return f"Воспроизводится {track}"
+
+        return f"Трек {track} не найден"
+
+
+
